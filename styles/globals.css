@@ -1,27 +1,47 @@
+/* Tailwind CSS Framework Integration */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Root Variable Definitions */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* Light Mode Colors */
+  --foreground-color-light: 0, 0, 0; /* Black */
+  --background-start-color-light: 214, 219, 220; /* Light Gray */
+  --background-end-color-light: 255, 255, 255; /* White */
+
+  /* Dark Mode Colors */
+  --foreground-color-dark: 255, 255, 255; /* White */
+  --background-start-color-dark: 0, 0, 0; /* Black */
+  --background-end-color-dark: 0, 0, 0; /* Black */
 }
 
+/* Dark Mode Media Query */
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: var(--foreground-color-dark);
+    --background-start-rgb: var(--background-start-color-dark);
+    --background-end-rgb: var(--background-end-color-dark);
   }
 }
 
+/* Body Styling */
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
-    )
+    ),
     rgb(var(--background-start-rgb));
+  /* Additional Styling */
+  margin: 0;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  /* Responsive Font Size */
+  font-size: 16px; /* Default */
+  @media (max-width: 768px) {
+    font-size: 14px; /* Smaller screens */
+  }
 }
+
+/* Additional Global Styles (if needed) */
